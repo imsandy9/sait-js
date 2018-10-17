@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Assignment-Day7</title>
+    <style>
+    body {
+        margin : auto;
+        width : 80%;
+        text-align: center;
+        background-color: rgb(194, 194, 194);
+    }
+    form {
+        padding: 20px;
+        border: 1px solid grey;
+        
+    }
+    #box1, #box2, #box3, #box4, .box {
+        height: 200px;
+        width:500px;
+        border: 1px solid black;
+        margin : 10px;
+        
+    }
+    
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Lyric Search App</h1>
+    </header>
+    <form>
+        <h3>Search by Artist name : </h3>
+        <!-- <input type="text" id="a1" maxlength="100" size="60" > -->
+        <select type="text" id="a1" maxlength="100" >
+            <option >Coldplay</option>
+            <option >William - Damso</option>
+            <option >Sam Smith</option>
+        </select>    
+        <br>
+        <h4>or </h4>
+        
+        <h3>Search by Lyrics : </h3>
+        <select type="text" id="n1" maxlength="100" >
+            <option >Adventure of a Lifetime</option>
+            <option >Too Good At Goodbyes</option>
+            <option>Adventure of a Lifetime</option>
+        </select>
+        <br><br>
+        <input  type="button" id = "submitbutton" value="Submit" />
+        <!-- <input  type="button" id = "resetbutton" value="Reset" /> -->
+    </form>
+
+    <div id='lyric'>   
+    </div>
+    
+    <script>
+        var mydiv=document.getElementById('lyric');
+        var button=document.getElementById("submitbutton");
+        button.addEventListener("click", function(event) {
+            event.preventDefault();
+
+            var artist= document.getElementById("a1").value;
+            console.log(artist);
+
+            var title= document.getElementById("n1").value;
+            console.log(title);
+        
+
+            fetch('https://api.lyrics.ovh/v1/'+artist+"/"+title)
+            .then(function(response) {
+                return response.json();
+            })
+            .then(function(data) {
+                mydiv.innerHTML=data.lyrics;
+                
+                
+                console.log(data);
+            })
+
+            
+        });
+
+    </script> 
+    
+</body>
+</html>
