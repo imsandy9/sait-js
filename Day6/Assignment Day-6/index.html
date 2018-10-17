@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Assignment 6-Color Generator</title>
+    <style>
+    .main {
+        display: flex;
+    }
+
+    #box1, #box2, #box3, #box4, .box {
+        height: 50px;
+        width: 50px;
+        border: 1px solid black;
+        margin : 10px;
+        
+    }
+    </style>
+</head>
+<body>
+<header>
+    <h1>Color Palette Generator</h1>
+</header>
+<form>
+    <h3>Enter number of color pallets : </h3>
+    <input type="text" id="n1" maxlength="5" name="num" value=" "  >
+    <br><br>
+    <input  type="button" id = "submitbutton" value="Submit" />
+    <input  type="button" id = "resetbutton" value="Reset" />
+</form>
+
+<div class='main'>
+    <div id = 'box1' class="box"></div>
+    <div id = 'box2' class="box"></div>
+    <div id = 'box3' class="box"></div>
+    <div id = 'box4' class="box"></div>
+    
+
+</div>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/randomcolor/0.5.2/randomColor.js'></script>
+    <script src = 'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
+    
+    <script src = './code.js'></script>
+    
+</body>
+</html>
